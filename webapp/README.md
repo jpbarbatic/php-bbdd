@@ -9,3 +9,5 @@ Esta es la aplicación que se está realizando en clase
 - Crear la base de datos
 - Usar el fichero datos.sql para recrear la base de datos
 - Modificar el fichero config.php para contectar a la base de datos
+- admin: parte de administración
+- public: parte pública
