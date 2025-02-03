@@ -24,6 +24,14 @@
 			<label for="inputPassword6" class="col-form-label">C. Barras</label>
 			<input class="form-control" type="text" name="codigo_barras" placeholder="C. Barras" value="<?php echo isset($producto) ? $producto['codigo_barras'] : '' ?>" required>
 		</div>
+		<div class="col-auto mb-3">
+			<label for="inputPassword6" class="col-form-label">Categoría</label>
+			<select class="form-select" name="categoria_id">
+			<?php foreach($categorias as $categoria): ?>
+			<option value="<?php echo $categoria['id'] ?>" <?=(isset($producto) and $categoria['id']==$producto['categoria_id']) ? 'selected':'' ?>><?php echo $categoria['nombre'] ?></option>
+			<?php endforeach; ?>
+			</select>
+		</div>		
 	</div>
 	<input class="btn btn-success mb-3" type="submit" value="Guardar">
 </form>

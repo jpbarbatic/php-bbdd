@@ -48,9 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 }
 
+$categorias = db_query($conn, "SELECT * FROM categorias");
 $productos = db_query($conn, "SELECT * FROM productos");
 $conn = db_close($conn);
+
 $titulo = "Gestión de productos";
 $vista = 'productos';
-
 require("../vistas/admin/plantilla.html.php");
