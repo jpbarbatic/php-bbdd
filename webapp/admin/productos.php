@@ -4,7 +4,17 @@ require('comun.inc.php');
 $conn = db_open();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+	
+	if(isset($_FILES['foto']))
+	{
+		copy($_FILES['foto']['tmp_name'], 'imagenes/productos/'.$_REQUEST['id'].'.jpg');
+		header('Location: productos.php?editar=' .$_REQUEST['id']);
+		exit;
+		/*print_r($_FILES);
+		print_r($_REQUEST);
+		exit;*/
+	}
+	
 	$producto['id'] = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
 	$producto['nombre'] = $_REQUEST['nombre'];
 	$producto['cantidad'] = $_REQUEST['cantidad'];

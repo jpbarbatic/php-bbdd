@@ -20,19 +20,30 @@
 			<label for="inputPassword6" class="col-form-label">Cantidad</label>
 			<input class="form-control" type="text" name="cantidad" placeholder="Cantidad" value="<?php echo isset($producto) ? $producto['cantidad'] : '' ?>" required>
 		</div>						
-		<div class="col-auto">
+		<div class="col-auto mb-3">
 			<label for="inputPassword6" class="col-form-label">C. Barras</label>
 			<input class="form-control" type="text" name="codigo_barras" placeholder="C. Barras" value="<?php echo isset($producto) ? $producto['codigo_barras'] : '' ?>" required>
 		</div>
 	</div>
-	<input class="btn btn-success" type="submit" value="Guardar">
+	<input class="btn btn-success mb-3" type="submit" value="Guardar">
 </form>
+
+<?php if(isset($producto)): ?>
+<form action="" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="<?php echo $producto['id'] ?>">
+	<input type="file" class="form-control" name="foto">
+	<input class="btn btn-success mb-3" type="submit" value="Subir">
+</form>
+<img style="height: 100px;" src="imagenes/productos/<?php echo $producto['id']?>.jpg">
+<?php endif; ?>
+
 <?php /*if (isset($producto)): ?>
 	<img src="barcode.php?f=svg&s=ean-13-nopad&d=<?= $producto['codigo_barras'] ?>">
 <?php endif;*/ ?>
 <table class="table">
 	<tr>
 		<th class="text-end">ID</th>
+		<th>Foto</th>
 		<th>Nombre</th>
 		<th class="text-end">Precio</th>
 		<th class="text-end">Cantidad</th>
@@ -42,6 +53,7 @@
 	<?php foreach ($productos as $producto): ?>
 		<tr>
 			<td class="text-end"><?= $producto['id'] ?></td>
+			<td><img style="height: 30px;" src="imagenes/productos/<?php echo $producto['id']?>.jpg"></td>
 			<td><?= $producto['nombre'] ?></td>
 			<td class="text-end"><?= $producto['precio'] ?> &euro;</td>
 			<td class="text-end"><?= $producto['cantidad'] ?></td>
