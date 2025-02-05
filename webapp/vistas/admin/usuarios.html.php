@@ -1,5 +1,5 @@
 <h2>Gestión de usuarios</h2>
-<a class="btn btn-primary" href="usuarios.php">Nuevo</a>
+<a class="btn btn-primary mb-3" href="usuarios.php">Nuevo</a>
 <form action="usuarios.php" method="post">
 	<div class="row">
 		<div class="col">
@@ -24,10 +24,10 @@
 		</div>
 		<div class="col">
 			<label>Password</label>
-			<input class="col form-control" type="password" name="password" placeholder="Password" value="<?php echo isset($usuario) ? $usuario['password'] : '' ?>" required>
+			<input class="col form-control mb-3" type="password" name="password" placeholder="Password" value="<?php echo isset($usuario) ? $usuario['password'] : '' ?>" required>
 		</div>
 	</div>
-	<input class="btn btn-success" type="submit" value="Guardar">
+	<input class="btn btn-success mb-3" type="submit" value="Guardar">
 </form>
 <table class="table">
 	<tr>

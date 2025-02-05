@@ -1,7 +1,7 @@
 <h2>Gestión de productos</h2>
-<a class="btn btn-primary" href="productos.php">Nuevo</a>
+<a class="btn btn-primary mb-3" href="productos.php">Nuevo</a>
 <form action="productos.php" method="post">
-	<div class="row g-3 align-items-center">
+	<div class="row">
 		<div class="col-1">
 			<label for="inputPassword6" class="col-form-label">ID</label>
 			<div class="input-group">
@@ -31,6 +31,7 @@
 			<option value="<?php echo $categoria['id'] ?>" <?=(isset($producto) and $categoria['id']==$producto['categoria_id']) ? 'selected':'' ?>><?php echo $categoria['nombre'] ?></option>
 			<?php endforeach; ?>
 			</select>
+			<?php // echo createSelect('categoria_id', $categorias, 'id', 'nombre', isset($producto) ? $producto['categoria_id'] : null, 'form-select')?>
 		</div>		
 	</div>
 	<input class="btn btn-success mb-3" type="submit" value="Guardar">
@@ -38,9 +39,15 @@
 
 <?php if(isset($producto)): ?>
 <form action="" method="post" enctype="multipart/form-data">
+<div class="row">
 	<input type="hidden" name="id" value="<?php echo $producto['id'] ?>">
+	<div class="col-5">
 	<input type="file" class="form-control" name="foto">
+	</div>
+	<div class="col-3">
 	<input class="btn btn-success mb-3" type="submit" value="Subir">
+	</div>
+</div>
 </form>
 <img style="height: 100px;" src="imagenes/productos/<?php echo $producto['id']?>.jpg">
 <?php endif; ?>
@@ -56,6 +63,7 @@
 		<th class="text-end">Precio</th>
 		<th class="text-end">Cantidad</th>
 		<th class="text-center">C. Barras</th>
+		<th class="text-center">Categoría</th>
 		<th class="text-center">Acciones</th>
 	</tr>
 	<?php foreach ($productos as $producto): ?>
@@ -66,6 +74,7 @@
 			<td class="text-end"><?= $producto['precio'] ?> &euro;</td>
 			<td class="text-end"><?= $producto['cantidad'] ?></td>
 			<td class="text-center"><?= $producto['codigo_barras'] ?></td>
+			<td class="text-center"><?= $producto['categoria'] ?></td>
 			<td class="text-center"><a class="btn btn-primary" href="productos.php?editar=<?= $producto['id'] ?>">Editar</a> <a class="btn btn-danger" href="productos.php?borrar=<?= $producto['id'] ?>">Borrar</a></td>
 		</tr>
 	<?php endforeach; ?>

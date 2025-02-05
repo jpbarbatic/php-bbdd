@@ -1,3 +1,3 @@
 <?php
-$vista="portada";
+$vista="contact";
 require('../vistas/public/plantilla.html.php');

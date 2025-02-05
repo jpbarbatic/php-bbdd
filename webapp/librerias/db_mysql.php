@@ -18,6 +18,7 @@ function db_open()
 	try {
 		return mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 	} catch (Exception $e) {
+		if(DEBUG) die($e);
 		return false;
 	}
 }
@@ -30,6 +31,7 @@ function db_close($conn)
 	try {
 		return mysqli_close($conn);
 	} catch (Exception $e) {
+		if(DEBUG) die($e);
 		return false;
 	}
 }
@@ -55,7 +57,7 @@ function db_query($conn, $sql, $values = null)
 			return $data;
 		}
 	} catch (Exception $e) {
-		echo $e;
+		if(DEBUG) die($e);
 		return false;
 	}
 }
@@ -82,6 +84,7 @@ function db_insert($conn, $table, $dto)
 		$res = mysqli_stmt_execute($stmt, $values);
 		return mysqli_insert_id($conn);
 	} catch (Exception $e) {
+		if(DEBUG) die($e);
 		return false;
 	}
 }
@@ -102,8 +105,10 @@ function db_update($conn, $table, $dto)
 		$id = $dto['id'];
 		unset($dto['id']);
 	} else {
+		if(DEBUG) die("Falta el campo id");
 		return false;
 	}
+
 	try {
 		$values = array_values($dto);
 		$fields = [];
@@ -115,6 +120,7 @@ function db_update($conn, $table, $dto)
 		$stmt = mysqli_prepare($conn, $sql);
 		return mysqli_stmt_execute($stmt, array_values($dto));
 	} catch (Exception $e) {
+		if(DEBUG) die($e);
 		return false;
 	}
 }
@@ -132,7 +138,8 @@ function db_delete_by_id($conn, $table, $id)
 	try {
 		$stmt = mysqli_prepare($conn, "DELETE FROM $table WHERE id=?");
 		return mysqli_stmt_execute($stmt, [$id]);
-	} catch (Exception $e) {
+	} catch (Exception $e) {		
+		if(DEBUG) die($e);
 		return false;
 	}
 }

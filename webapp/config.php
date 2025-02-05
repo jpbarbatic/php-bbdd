@@ -2,7 +2,7 @@
 ini_set('display_errors','On');
 ini_set('error_reporting', E_ALL );
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
+define('DEBUG', true);
 define('DB_HOST', 'localhost');
 define('DB_USER', 'prueba');
 define('DB_PASS', '1234');

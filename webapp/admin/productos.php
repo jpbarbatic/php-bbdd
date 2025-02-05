@@ -1,6 +1,6 @@
 <?php
 require('comun.inc.php');
-
+require('../librerias/html_helper.php');
 $conn = db_open();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -49,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $categorias = db_query($conn, "SELECT * FROM categorias");
-$productos = db_query($conn, "SELECT * FROM productos");
+$productos = db_query($conn, "SELECT p.*, c.nombre as categoria FROM productos p INNER JOIN categorias c ON p.categoria_id=c.id");
+
 $conn = db_close($conn);
 
 $titulo = "Gestión de productos";
