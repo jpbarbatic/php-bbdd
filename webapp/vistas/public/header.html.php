@@ -32,7 +32,7 @@
                                     <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                            <li class="scroll-to-section"><a href="contact.php">Contactar</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
