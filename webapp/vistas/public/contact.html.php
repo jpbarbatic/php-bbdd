@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-content">
-                        <h2>Contact Us</h2>
-                        <span>Awesome, clean &amp; creative HTML5 Template</span>
+                        <h2>Contactar</h2>
+                        <span></span>
                     </div>
                 </div>
             </div>
@@ -33,17 +33,17 @@
                         <div class="row">
                           <div class="col-lg-6">
                             <fieldset>
-                              <input name="name" type="text" id="name" placeholder="Your name" required="">
+                              <input name="name" type="text" id="name" placeholder="Su nombre" required="">
                             </fieldset>
                           </div>
                           <div class="col-lg-6">
                             <fieldset>
-                              <input name="email" type="text" id="email" placeholder="Your email" required="">
+                              <input name="email" type="text" id="email" placeholder="Su email" required="">
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <textarea name="message" rows="6" id="message" placeholder="Your message" required=""></textarea>
+                              <textarea name="message" rows="6" id="message" placeholder="Su mensaje" required=""></textarea>
                             </fieldset>
                           </div>
                           <div class="col-lg-12">

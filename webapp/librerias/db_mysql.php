@@ -49,6 +49,7 @@ function db_query($conn, $sql, $values = null)
 		mysqli_stmt_execute($stmt, $values);
 		$res = mysqli_stmt_get_result($stmt);
 
+		// Detectamos si es un SELECT, DELETE, UPDATE o INSERT
 		if (gettype($res) == 'boolean') {
 			return $res;
 		} else {

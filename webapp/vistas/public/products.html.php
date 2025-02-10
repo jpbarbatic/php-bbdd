@@ -1,38 +1,20 @@
-
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="page-heading" id="top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inner-content">
-                        <h2>Check Our Products</h2>
-                        <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Main Banner Area End ***** -->
-
-
     <!-- ***** Products Area Starts ***** -->
-    <section class="section" id="products">
+    <section style="margin-top: 50px;" class="section" id="products">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
-                        <h2>Our Latest Products</h2>
-                        <span>Check out all of our products.</span>
+                        <h2>Nuestro catálogo</h2>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-				<?php for($i=0; $i<10; $i++):?>
+				<?php foreach($productos as $producto): ?>
                 <div class="col-lg-4">
                     <div class="item">
-                        <div class="thumb">
+                        <div style="text-align: center;" class="thumb">
                             <div class="hover-content">
                                 <ul>
                                     <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
@@ -40,11 +22,11 @@
                                     <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
-                            <img src="assets/images/men-01.jpg" alt="">
+                            <img style="height: 300px; width: auto;" src="imagenes/productos/<?php echo $producto['id'] ?>.jpg" alt="">
                         </div>
                         <div class="down-content">
-                            <h4>Classic Spring</h4>
-                            <span>$120.00</span>
+                            <h4><a href="single-product.php?id=<?php echo $producto['id'] ?>"><?php echo $producto['nombre'] ?></a></h4>
+                            <span><?php echo $producto['precio'] ?> &euro;</span>
                             <ul class="stars">
                                 <li><i class="fa fa-star"></i></li>
                                 <li><i class="fa fa-star"></i></li>
@@ -55,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-				<?php endfor; ?>
+				<?php endforeach; ?>
                 <div class="col-lg-12">
                     <div class="pagination">
                         <ul>
