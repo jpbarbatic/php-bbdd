@@ -1,4 +1,4 @@
-<h2>Gestión de productos</h2>
+<h2 style="float: left; margin-right: 30px;" >Gestión de productos</h2>
 <a class="btn btn-primary mb-3" href="productos.php">Nuevo</a>
 <form action="productos.php" method="post">
 	<div class="row">
@@ -32,12 +32,12 @@
 			<?php endforeach; ?>
 			</select>
 			<?php // echo createSelect('categoria_id', $categorias, 'id', 'nombre', isset($producto) ? $producto['categoria_id'] : null, 'form-select')?>
-		</div>		
+		</div>				
 	</div>
 	<input class="btn btn-success mb-3" type="submit" value="Guardar">
 </form>
-
 <?php if(isset($producto)): ?>
+
 <form action="" method="post" enctype="multipart/form-data">
 <div class="row">
 	<input type="hidden" name="id" value="<?php echo $producto['id'] ?>">
@@ -51,7 +51,9 @@
 </form>
 <img style="height: 100px;" src="imagenes/productos/<?php echo $producto['id']?>.jpg">
 <?php endif; ?>
-
+<div style="float: right;">
+<?php include "paginacion.html.php" ?>
+</div>
 <?php /*if (isset($producto)): ?>
 	<img src="barcode.php?f=svg&s=ean-13-nopad&d=<?= $producto['codigo_barras'] ?>">
 <?php endif;*/ ?>
@@ -79,3 +81,6 @@
 		</tr>
 	<?php endforeach; ?>
 </table>
+<div style="float: right;">
+<?php include "paginacion.html.php" ?>
+</div>

@@ -11,6 +11,12 @@
         </div>
         <div class="container">
             <div class="row">
+                <div class="col-lg-12">
+                    <?php include "paginacion.html.php" ?>
+                </div>
+                <div class="col-lg-12" style="text-align: center;">
+                    <?php echo "Total productos: ".$total?>
+                </div>
 				<?php foreach($productos as $producto): ?>
                 <div class="col-lg-4">
                     <div class="item">
@@ -25,39 +31,23 @@
                             <img style="height: 300px; width: auto;" src="imagenes/productos/<?php echo $producto['id'] ?>.jpg" alt="">
                         </div>
                         <div class="down-content">
-                            <h4><a href="single-product.php?id=<?php echo $producto['id'] ?>"><?php echo $producto['nombre'] ?></a></h4>
+                            <h4><a style="color: black;" href="single-product.php?id=<?php echo $producto['id'] ?>"><?php echo $producto['nombre'] ?></a></h4>
                             <span><?php echo $producto['precio'] ?> &euro;</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
+                            <div>
+                            <ul class="">
+                                <li style="float: left;"><i class="fa fa-star"></i></li>
+                                <li style="float: left;"><i class="fa fa-star"></i></li>
+                                <li style="float: left;"><i class="fa fa-star"></i></li>
+                                <li style="float: left;"><i class="fa fa-star"></i></li>
+                                <li style="float: left;"><i class="fa fa-star"></i></li>
                             </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 				<?php endforeach; ?>
                 <div class="col-lg-12">
-                    <div class="pagination">
-                        <ul>
-                            <li>
-                                <a href="#">1</a>
-                            </li>
-                            <li class="active">
-                                <a href="#">2</a>
-                            </li>
-                            <li>
-                                <a href="#">3</a>
-                            </li>
-                            <li>
-                                <a href="#">4</a>
-                            </li>
-                            <li>
-                                <a href="#">></a>
-                            </li>
-                        </ul>
-                    </div>
+                    <?php include "paginacion.html.php"?>
                 </div>
             </div>
         </div>

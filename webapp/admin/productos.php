@@ -49,7 +49,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $categorias = db_query($conn, "SELECT * FROM categorias");
-$productos = db_query($conn, "SELECT p.*, c.nombre as categoria FROM productos p INNER JOIN categorias c ON p.categoria_id=c.id");
+
+$num_por_pagina=9;  // Items por página
+$pagina=isset($_GET['p']) ? $_GET['p'] : 1; // Obtenemos el número de la página
+
+$total=db_query($conn, "select count(*) as total from productos")[0]['total'];  // Obtenemos el total
+
+$num_paginas=ceil($total/$num_por_pagina);  // Obtenemos el número de páginas
+$offset=($pagina-1)*$num_por_pagina;
+
+$productos = db_query($conn, "SELECT p.*, c.nombre as categoria FROM productos p INNER JOIN categorias c ON p.categoria_id=c.id  LIMIT $num_por_pagina OFFSET $offset");
 
 $conn = db_close($conn);
 
