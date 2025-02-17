@@ -8,3 +8,11 @@ define('DB_USER', 'prueba');
 define('DB_PASS', '1234');
 define('DB_NAME', 'prueba');
 define('DB_PORT', 3306);
+
+define('SMTP_SERVER', 'smtp.gmail.com');
+define('SMTP_PORT', 465);
+define('SMTP_AUTH', true);
+define('SMTP_SECURE', 'ssl');
+define('MAIL_USERNAME', '');
+define('MAIL_USER', '');
+define('MAIL_PASS', '');
