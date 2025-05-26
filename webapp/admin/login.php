@@ -29,4 +29,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	db_close($conn);
 }
 require('../vistas/admin/login.html.php');
-

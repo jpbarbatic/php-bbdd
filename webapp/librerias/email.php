@@ -34,7 +34,7 @@ function enviar_mail($destinatario, $asunto = '', $mensaje = '', $adjuntos = nul
 
         // Configure Email
         $mail->setFrom(MAIL_USER);
-        $mail->addAddress($destinatario, MAIL_USERNAME);
+        $mail->addAddress($destinatario);
         $mail->Subject = $asunto;
         $mail->isHTML(true);
         $mail->Body = $mensaje;
